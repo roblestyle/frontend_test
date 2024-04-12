@@ -32,3 +32,10 @@ The package manager of choice for this project is yarn. You can install yarn by 
 ### CSS Style
 
 This project uses RSCSS conventions. You can read about it [here](https://ricostacruz.com/rscss/)
+
+
+
+Answer:
+
+[Easy][Fix] User info displayed in modal
+
