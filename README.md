@@ -45,4 +45,4 @@ Solution:
 
 Change  <div className="fields"> to  <div className="field">
 
-![Solution](https://github.com/roblestyle/frontend_test/blob/fix/modal-info-display-solution/Screenshot%202024-04-12%20221531.png)
+![Solution](https://github.com/roblestyle/frontend_test/blob/fix/modal-info-display-solution/Screenshot%202024-04-12%20221550.png)
