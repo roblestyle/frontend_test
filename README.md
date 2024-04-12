@@ -10,6 +10,12 @@ To run this project you will need Node JS (v16.8 or later). We recommend using [
 
 The package manager of choice for this project is yarn. You can install yarn by following this [guide](https://yarnpkg.com/getting-started/install)
 
+### Install Dependencies
+
+```bash
+  yarn install
+```
+
 ### Commands
 
 ```bash
@@ -26,3 +32,17 @@ The package manager of choice for this project is yarn. You can install yarn by 
 ### CSS Style
 
 This project uses RSCSS conventions. You can read about it [here](https://ricostacruz.com/rscss/)
+
+
+
+Answer:
+
+[Easy][Fix] User info displayed in modal
+
+![Fixed Modal](https://github.com/roblestyle/frontend_test/blob/fix/modal-info-display-solution/Screenshot%202024-04-12%20221531.png)
+
+Solution:
+
+Change  `<div className="fields">` to  `<div className="field">`
+
+![Solution](https://github.com/roblestyle/frontend_test/blob/fix/modal-info-display-solution/Screenshot%202024-04-12%20221550.png)
