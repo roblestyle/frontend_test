@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Avatar from "boring-avatars";
 import {
   FaRegCircleXmark,
@@ -22,6 +22,50 @@ const Gallery = ({ users }: GalleryProps) => {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+
+// //  Function to sort users based on selected field and direction
+ const sortUsers = (field: string, direction: string) => {
+  const sortedUsers = [...usersList].sort((a, b) => {
+
+      // Access the nested property using dot notation
+    const fieldValueA = getFieldNestedValue(a, field);
+    const fieldValueB = getFieldNestedValue(b, field);
+
+    // Compare the values based on the sorting direction
+    if (fieldValueA === fieldValueB) {
+      return 0; // If values are equal, maintain current order
+    }
+
+    if (direction === "ascending") {
+      return fieldValueA > fieldValueB ? 1 : -1;
+    } else {
+      return fieldValueA < fieldValueB ? 1 : -1;
+    }
+  });
+  setUsersList(sortedUsers);
+};
+
+
+
+// Helper function for a nested property, company.name
+const getFieldNestedValue = (obj, field) => {
+    const fields = field.split("."); 
+    let value = obj;
+    for (let i = 0; i < fields.length; i++) {
+      value = value[fields[i]]; 
+    }
+    return value;
+};
+
+
+// Effect to update usersList when users prop changes
+useEffect(() => {
+  setUsersList(users);
+}, [users]);
+
+
+
+  
   const handleModalOpen = (id: number) => {
     const user = usersList.find((item) => item.id === id) || null;
 
@@ -40,7 +84,7 @@ const Gallery = ({ users }: GalleryProps) => {
     <div className="user-gallery">
       <div className="heading">
         <h1 className="title">Users</h1>
-        <Controls />
+        <Controls  onSort={sortUsers} />
       </div>
       <div className="items">
         {usersList.map((user, index) => (
